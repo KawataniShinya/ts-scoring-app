@@ -12,6 +12,7 @@ class Factor {
 class Factors {
     elements = document.querySelectorAll<HTMLDivElement>('.factor');
     private _activeElements: HTMLDivElement[] = [];
+    private _activeElementsScore: number[] = [];
     get activeElements() {
         this._activeElements = [];
         this.elements.forEach(element => {
@@ -20,6 +21,16 @@ class Factors {
             }
         })
         return this._activeElements;
+    }
+    get activeElementsScore() {
+        this._activeElementsScore = [];
+        this.activeElements.forEach(element => {
+            const factorScore = element.querySelector('.factor__score');
+            if (factorScore) {
+                this._activeElementsScore.push(Number(factorScore.textContent))
+            }
+        })
+        return this._activeElementsScore;
     }
     constructor() {
         this.elements.forEach(element => {

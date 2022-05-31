@@ -14,6 +14,7 @@ class Factors {
     constructor() {
         this.elements = document.querySelectorAll('.factor');
         this._activeElements = [];
+        this._activeElementsScore = [];
         this.elements.forEach(element => {
             new Factor(element);
         });
@@ -26,6 +27,16 @@ class Factors {
             }
         });
         return this._activeElements;
+    }
+    get activeElementsScore() {
+        this._activeElementsScore = [];
+        this.activeElements.forEach(element => {
+            const factorScore = element.querySelector('.factor__score');
+            if (factorScore) {
+                this._activeElementsScore.push(Number(factorScore.textContent));
+            }
+        });
+        return this._activeElementsScore;
     }
 }
 const factors = new Factors();
