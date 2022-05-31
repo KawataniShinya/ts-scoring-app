@@ -11,6 +11,16 @@ class Factor {
 
 class Factors {
     elements = document.querySelectorAll<HTMLDivElement>('.factor');
+    private _activeElements: HTMLDivElement[] = [];
+    get activeElements() {
+        this._activeElements = [];
+        this.elements.forEach(element => {
+            if (element.classList.contains('factor--active')) {
+                this._activeElements.push(element);
+            }
+        })
+        return this._activeElements;
+    }
     constructor() {
         this.elements.forEach(element => {
             new Factor(element);
