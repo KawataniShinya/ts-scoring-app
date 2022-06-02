@@ -1,4 +1,20 @@
-class Score {
+interface Scoreable {
+    readonly totalScore: Number;
+    render(): void;
+}
+
+interface Factorable {
+    element: HTMLDivElement;
+    clickEventHandler(): void;
+}
+
+interface Factorsable {
+    elements: NodeListOf<HTMLDivElement>;
+    readonly activeElements: HTMLDivElement[];
+    readonly activeElementsScore: number[];
+}
+
+class Score implements Scoreable {
     private static instance: Score;
     private constructor() {}
     get totalScore() {
@@ -16,7 +32,7 @@ class Score {
     }
 }
 
-class Factor {
+class Factor implements Factorable {
     constructor(public element: HTMLDivElement) {
         element.addEventListener('click', this.clickEventHandler.bind(this));
     }
@@ -27,7 +43,7 @@ class Factor {
     }
 }
 
-class Factors {
+class Factors implements Factorsable {
     private static instance: Factors;
     elements = document.querySelectorAll<HTMLDivElement>('.factor');
     private _activeElements: HTMLDivElement[] = [];
