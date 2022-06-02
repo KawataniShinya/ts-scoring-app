@@ -1,4 +1,9 @@
-class Score { }
+class Score {
+    get totalScore() {
+        const factors = new Factors();
+        return factors.activeElementsScore.reduce((total, score) => total + score, 0)
+    }
+}
 
 class Factor {
     constructor(public element: HTMLDivElement) {
@@ -38,4 +43,5 @@ class Factors {
         })
     }
 }
+
 const factors = new Factors();

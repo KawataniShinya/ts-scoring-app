@@ -1,5 +1,9 @@
 "use strict";
 class Score {
+    get totalScore() {
+        const factors = new Factors();
+        return factors.activeElementsScore.reduce((total, score) => total + score, 0);
+    }
 }
 class Factor {
     constructor(element) {
