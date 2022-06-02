@@ -1,8 +1,18 @@
 "use strict";
 class Score {
+    constructor() { }
     get totalScore() {
-        const factors = new Factors();
+        const factors = Factors.getInstance();
         return factors.activeElementsScore.reduce((total, score) => total + score, 0);
+    }
+    render() {
+        document.querySelector('.score__number').textContent = String(this.totalScore);
+    }
+    static getInstance() {
+        if (!Score.instance) {
+            Score.instance = new Score();
+        }
+        return Score.instance;
     }
 }
 class Factor {
@@ -12,6 +22,8 @@ class Factor {
     }
     clickEventHandler() {
         this.element.classList.toggle('factor--active');
+        const score = Score.getInstance();
+        score.render();
     }
 }
 class Factors {
@@ -42,5 +54,11 @@ class Factors {
         });
         return this._activeElementsScore;
     }
+    static getInstance() {
+        if (!Factors.instance) {
+            Factors.instance = new Factors();
+        }
+        return Factors.instance;
+    }
 }
-const factors = new Factors();
+const factors = Factors.getInstance();
