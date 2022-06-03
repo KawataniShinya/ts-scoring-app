@@ -1,5 +1,5 @@
-"use strict";
-class Factor {
+import { Score } from "./score.js";
+export class Factor {
     constructor(element) {
         this.element = element;
         element.addEventListener('click', this.clickEventHandler.bind(this));

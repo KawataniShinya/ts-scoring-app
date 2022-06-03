@@ -1,4 +1,7 @@
-class Factor implements Factorable {
+import { Factorable } from "./interfaces.js";
+import { Score } from "./score.js"
+
+export class Factor implements Factorable {
     constructor(public element: HTMLDivElement) {
         element.addEventListener('click', this.clickEventHandler.bind(this));
     }

@@ -1,5 +1,5 @@
-"use strict";
-class Score {
+import { Factors } from "./factors.js";
+export class Score {
     constructor() { }
     get totalScore() {
         const factors = Factors.getInstance();

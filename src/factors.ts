@@ -1,4 +1,7 @@
-class Factors implements Factorsable {
+import { Factorsable } from "./interfaces.js"
+import { Factor } from "./factor.js"
+
+export class Factors implements Factorsable {
     private static instance: Factors;
     elements = document.querySelectorAll<HTMLDivElement>('.factor');
     private _activeElements: HTMLDivElement[] = [];

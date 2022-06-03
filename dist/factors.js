@@ -1,5 +1,5 @@
-"use strict";
-class Factors {
+import { Factor } from "./factor.js";
+export class Factors {
     constructor() {
         this.elements = document.querySelectorAll('.factor');
         this._activeElements = [];
