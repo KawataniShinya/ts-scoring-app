@@ -16,6 +16,7 @@ TypeScript学習のために作成したアプリケーション<br>
 - Live Server
 
 ## DEMO
+https://kawatanishinya.github.io/ts-scoring-app/index.html
 
 ## Requirement
 開発環境として下記が必要。
